@@ -1,6 +1,6 @@
-gdown
-tensorflow==2.14.0
-streamlit
+streamlit==1.29.0
+tensorflow-cpu==2.14.0
 pillow
 numpy
 pandas
+gdown
