@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
+import os
 
 IMAGE_SIZE = (256, 256)  
 CLASS_NAMES = ['Cat', 'Dog']
@@ -33,7 +34,7 @@ def preprocess_image(image_file):
         image = image.convert('RGB')
         
         
-        image = ImageOps.fit(image, IMAGE_SIZE, Image.Resampling.LANCZOS)
+        image = image.resize(IMAGE_SIZE, resample=Image.LANCZOS)
         
        
         img_array = np.asarray(image)
@@ -55,7 +56,10 @@ st.title("🐱🐶 Cat vs. Dog Image Classifier")
 st.write("Upload an image, and the model will predict if it's a cat or a dog.")
 
 
-model = load_keras_model('Cat_Dog_Model.keras')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "Cat_Dog_Model.keras")
+
+model = load_model(model_path)
 
 if model is not None:
 
@@ -63,7 +67,7 @@ if model is not None:
 
     if uploaded_file is not None:
 
-        st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
+        st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
         
         st.write("")
         st.write("Classifying...")
