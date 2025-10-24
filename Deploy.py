@@ -59,7 +59,7 @@ st.write("Upload an image, and the model will predict if it's a cat or a dog.")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(BASE_DIR, "Cat_Dog_Model.keras")
 
-model = load_model(model_path)
+model = load_keras_model(model_path)
 
 if model is not None:
 
