@@ -4,6 +4,7 @@ from tensorflow.keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
 import os
+import gdown
 
 IMAGE_SIZE = (256, 256)  
 CLASS_NAMES = ['Cat', 'Dog']
@@ -57,7 +58,7 @@ st.write("Upload an image, and the model will predict if it's a cat or a dog.")
 
 
 MODEL_FILE = "Cat_Dog_Model.keras"
-MODEL_ID = "https://drive.google.com/file/d/1KoZ8i3zIlMDiFme_TgHFYmPuM7blVE7e/view?usp=sharing"
+MODEL_ID = "1KoZ8i3zIlMDiFme_TgHFYmPuM7blVE7e"
 MODEL_URL = f"https://drive.google.com/uc?id={MODEL_ID}"
 
 # Download model if not present

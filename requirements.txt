@@ -1,4 +1,6 @@
+gdown
+tensorflow==2.14.0
+streamlit
+pillow
 numpy
 pandas
-tensorflow
-streamlit
