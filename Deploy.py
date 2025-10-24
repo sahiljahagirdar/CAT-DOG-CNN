@@ -56,10 +56,16 @@ st.title("🐱🐶 Cat vs. Dog Image Classifier")
 st.write("Upload an image, and the model will predict if it's a cat or a dog.")
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(BASE_DIR, "Cat_Dog_Model.keras")
+MODEL_FILE = "Cat_Dog_Model.keras"
+MODEL_ID = "https://drive.google.com/file/d/1KoZ8i3zIlMDiFme_TgHFYmPuM7blVE7e/view?usp=sharing"
+MODEL_URL = f"https://drive.google.com/uc?id={MODEL_ID}"
 
-model = load_keras_model(model_path)
+# Download model if not present
+if not os.path.exists(MODEL_FILE):
+    gdown.download(MODEL_URL, MODEL_FILE, quiet=False)
+
+# Load model
+model = load_model(MODEL_FILE)
 
 if model is not None:
 
