@@ -1,5 +1,5 @@
-tensorflow
+python==3.12.*
+tensorflow==2.16.1
 streamlit
 pillow
 numpy
-pandas
